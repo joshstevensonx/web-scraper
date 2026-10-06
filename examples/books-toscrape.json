@@ -1,0 +1,72 @@
+{
+  "name": "Books to Scrape catalogue",
+  "entity": "product",
+  "sources": {
+    "mode": "manual",
+    "urls": [
+      {
+        "url": "https://books.toscrape.com/",
+        "type": "listing"
+      }
+    ]
+  },
+  "fields": [
+    {
+      "name": "name",
+      "label": "Title",
+      "required": true
+    },
+    {
+      "name": "price",
+      "type": "decimal",
+      "required": true
+    },
+    {
+      "name": "currency"
+    },
+    {
+      "name": "availability"
+    },
+    {
+      "name": "upc",
+      "label": "UPC"
+    },
+    {
+      "name": "rating",
+      "type": "text",
+      "selector": "p.star-rating",
+      "attribute": "class",
+      "transform": "after:star-rating|strip"
+    },
+    {
+      "name": "category",
+      "selector": "ul.breadcrumb li:nth-of-type(3) a"
+    },
+    {
+      "name": "image",
+      "type": "url",
+      "selector": "#product_gallery img",
+      "attribute": "src"
+    },
+    {
+      "name": "source_url",
+      "type": "url",
+      "label": "Product URL"
+    }
+  ],
+  "records": {
+    "minimum": 50,
+    "maximum": 50,
+    "stop_at_minimum": true
+  },
+  "crawl": {
+    "delay": 0.5
+  },
+  "output": {
+    "format": [
+      "xlsx",
+      "csv"
+    ],
+    "filename": "books"
+  }
+}

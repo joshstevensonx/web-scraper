@@ -1,0 +1,92 @@
+{
+  "name": "Cape Town software companies",
+  "entity": "business",
+  "targeting": {
+    "description": "Software companies in Cape Town",
+    "required": {
+      "location": {
+        "country": "South Africa",
+        "province": "Western Cape",
+        "city": "Cape Town"
+      },
+      "industry": [
+        "Software",
+        "Technology"
+      ]
+    },
+    "preferred": {
+      "keywords": [
+        "SaaS",
+        "cloud"
+      ]
+    },
+    "excluded": {
+      "business_types": [
+        "Government",
+        "Non-profit"
+      ]
+    }
+  },
+  "fields": [
+    {
+      "name": "company_name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "name": "website",
+      "type": "url",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "required": false
+    },
+    {
+      "name": "phone",
+      "type": "phone",
+      "required": false
+    },
+    {
+      "name": "address",
+      "type": "address",
+      "required": false
+    },
+    {
+      "name": "city",
+      "type": "text"
+    },
+    {
+      "name": "industry",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "description",
+      "type": "text",
+      "required": false
+    },
+    {
+      "name": "linkedin_url",
+      "type": "url"
+    }
+  ],
+  "sources": {
+    "mode": "auto",
+    "urls": []
+  },
+  "records": {
+    "minimum": 50,
+    "maximum": 100,
+    "stop_at_minimum": true
+  },
+  "output": {
+    "format": "xlsx",
+    "filename": "cape-town-software-companies",
+    "include_source": true,
+    "include_timestamp": true,
+    "include_quality_score": true,
+    "include_provenance": true
+  }
+}

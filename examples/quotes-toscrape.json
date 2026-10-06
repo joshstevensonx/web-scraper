@@ -1,0 +1,51 @@
+{
+  "name": "Quotes to Scrape",
+  "entity": "generic",
+  "sources": {
+    "mode": "manual",
+    "urls": [
+      {
+        "url": "https://quotes.toscrape.com/",
+        "type": "listing",
+        "record_selector": "div.quote",
+        "follow_pattern": "^https://quotes\\.toscrape\\.com/page/\\d+/?$"
+      }
+    ]
+  },
+  "fields": [
+    {
+      "name": "quote",
+      "selector": "span.text",
+      "required": true
+    },
+    {
+      "name": "author",
+      "selector": "small.author",
+      "required": true
+    },
+    {
+      "name": "tags",
+      "type": "array",
+      "selector": "a.tag"
+    },
+    {
+      "name": "author_url",
+      "type": "url",
+      "selector": "a[href*='/author/']",
+      "attribute": "href"
+    }
+  ],
+  "records": {
+    "minimum": 40,
+    "maximum": 40,
+    "stop_at_minimum": true
+  },
+  "crawl": {
+    "delay": 0.5,
+    "max_depth": 1
+  },
+  "output": {
+    "format": "json",
+    "filename": "quotes"
+  }
+}

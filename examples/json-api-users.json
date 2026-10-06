@@ -1,0 +1,51 @@
+{
+  "name": "JSON API example (test data)",
+  "entity": "contact",
+  "sources": {
+    "mode": "manual",
+    "urls": [
+      {
+        "url": "https://jsonplaceholder.typicode.com/users",
+        "type": "api",
+        "field_map": {
+          "full_name": "name",
+          "organization": "company.name",
+          "city": "address.city",
+          "website": "website"
+        }
+      }
+    ]
+  },
+  "fields": [
+    {
+      "name": "full_name",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "email"
+    },
+    {
+      "name": "phone",
+      "type": "phone"
+    },
+    {
+      "name": "organization"
+    },
+    {
+      "name": "city"
+    },
+    {
+      "name": "website",
+      "type": "url"
+    }
+  ],
+  "records": {
+    "minimum": 10,
+    "maximum": 10
+  },
+  "output": {
+    "format": "json",
+    "filename": "api-users"
+  }
+}
