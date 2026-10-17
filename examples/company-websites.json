@@ -1,0 +1,47 @@
+{
+  "name": "Enrich a list of company websites",
+  "entity": "company",
+  "sources": {
+    "mode": "manual",
+    "url_file": "company-websites.txt"
+  },
+  "fields": [
+    {
+      "name": "company_name",
+      "required": true
+    },
+    {
+      "name": "website",
+      "type": "url",
+      "required": true
+    },
+    {
+      "name": "email",
+      "type": "email"
+    },
+    {
+      "name": "phone",
+      "type": "phone"
+    },
+    {
+      "name": "address",
+      "type": "address"
+    },
+    {
+      "name": "social_links",
+      "type": "array"
+    },
+    {
+      "name": "description"
+    }
+  ],
+  "records": {
+    "minimum": 1,
+    "maximum": 500
+  },
+  "output": {
+    "format": "csv",
+    "filename": "company-websites-enriched",
+    "include_provenance": true
+  }
+}
